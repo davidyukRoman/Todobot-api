@@ -1,0 +1,109 @@
+2026-10-05 12:38:07.143 +03:00 [INF] Bot started receiving updates.
+2026-10-05 12:38:07.229 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-05 12:38:07.282 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-05 12:38:07.333 +03:00 [INF] Hosting environment: Development
+2026-10-05 12:38:07.344 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-05 12:38:35.755 +03:00 [INF] Received message 'тест логів 2' in chat 1072623084
+2026-10-05 12:39:16.915 +03:00 [INF] Application is shutting down...
+2026-10-06 12:45:09.405 +03:00 [ERR] Failed executing DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-06 12:45:10.370 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-06 12:45:10.582 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-10-06 12:45:10.621 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-10-06 12:45:10.623 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-10-06 12:45:10.628 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-06 12:45:10.655 +03:00 [INF] Applying migration '20261006094118_InitialCreate'.
+2026-10-06 12:45:10.695 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Tasks" (
+    "Id" uuid NOT NULL,
+    "UserId" bigint NOT NULL,
+    "Title" character varying(500) NOT NULL,
+    "IsCompleted" boolean NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "CompletedAt" timestamp with time zone,
+    CONSTRAINT "PK_Tasks" PRIMARY KEY ("Id")
+);
+2026-10-06 12:45:10.702 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Tasks_UserId" ON "Tasks" ("UserId");
+2026-10-06 12:45:10.711 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20261006094118_InitialCreate', '10.0.12');
+2026-10-06 12:56:58.024 +03:00 [INF] Bot started receiving updates.
+2026-10-06 12:56:58.744 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-06 12:56:59.847 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-06 12:56:59.910 +03:00 [INF] Hosting environment: Development
+2026-10-06 12:57:00.138 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-06 12:57:13.423 +03:00 [INF] Received message '/add' in chat 1072623084
+2026-10-06 12:57:41.481 +03:00 [INF] Received message '/add пройти 10к кроків' in chat 1072623084
+2026-10-06 12:57:41.527 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-06 12:57:41.532 +03:00 [ERR] Telegram API Error occurred
+System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[Application.Tasks.Commands.CreateTaskCommand,System.String]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0(CancellationToken t)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at TodoBot.Api.BotHostedService.HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken) in D:\program\TodoBot\TodoBot.Api\BotHostedService.cs:line 70
+   at Telegram.Bot.Polling.DefaultUpdateHandler.HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+   at Telegram.Bot.TelegramBotClientExtensions.ReceiveAsync(ITelegramBotClient botClient, IUpdateHandler updateHandler, ReceiverOptions receiverOptions, CancellationToken cancellationToken)
+2026-10-06 13:02:21.924 +03:00 [INF] Application is shutting down...
+2026-10-06 13:02:29.966 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-06 13:02:29.845 +03:00 [INF] Bot started receiving updates.
+2026-10-06 13:02:30.241 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-06 13:02:30.247 +03:00 [INF] Hosting environment: Development
+2026-10-06 13:02:30.249 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-06 13:02:44.625 +03:00 [INF] Received message '/add пройти 10к кроків' in chat 1072623084
+2026-10-06 13:02:44.700 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-06 13:02:48.841 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Tasks" ("Id", "CompletedAt", "CreatedAt", "IsCompleted", "Title", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-10-06 13:06:00.321 +03:00 [INF] Application is shutting down...
+2026-10-07 13:19:17.137 +03:00 [INF] Bot started receiving updates.
+2026-10-07 13:19:19.400 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-07 13:19:21.440 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-07 13:19:22.030 +03:00 [INF] Hosting environment: Development
+2026-10-07 13:19:22.048 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-07 13:19:35.827 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-07 13:49:16.711 +03:00 [INF] Application is shutting down...
+2026-10-07 13:50:04.842 +03:00 [INF] Bot started receiving updates.
+2026-10-07 13:50:05.161 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-07 13:50:05.998 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-07 13:50:06.066 +03:00 [INF] Hosting environment: Development
+2026-10-07 13:50:06.086 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-07 13:50:34.420 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-07 14:04:54.987 +03:00 [INF] Executed DbCommand (117ms) [Parameters=[@request_UserId='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Title", t."IsCompleted"
+FROM "Tasks" AS t
+WHERE t."UserId" = @request_UserId
+ORDER BY t."CreatedAt"
+2026-10-07 14:05:37.886 +03:00 [INF] Application is shutting down...
+2026-10-07 14:05:54.681 +03:00 [INF] Now listening on: http://localhost:5255
+2026-10-07 14:05:54.371 +03:00 [INF] Bot started receiving updates.
+2026-10-07 14:05:55.089 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-07 14:05:55.112 +03:00 [INF] Hosting environment: Development
+2026-10-07 14:05:55.130 +03:00 [INF] Content root path: D:\program\TodoBot\TodoBot.Api
+2026-10-07 14:06:09.033 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-07 14:06:12.228 +03:00 [INF] Executed DbCommand (141ms) [Parameters=[@request_UserId='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Title", t."IsCompleted"
+FROM "Tasks" AS t
+WHERE t."UserId" = @request_UserId
+ORDER BY t."CreatedAt"
+2026-10-07 14:10:05.743 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5255/?userId=1072623084 - null null
+2026-10-07 14:10:05.791 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5255/?userId=1072623084 - 404 0 null 61.1084ms
+2026-10-07 14:10:05.860 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5255/, Response status code: 404
+2026-10-07 14:12:19.586 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5255/?userId=1072623084 - null null
+2026-10-07 14:12:19.625 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5255/?userId=1072623084 - 404 0 null 46.4954ms
+2026-10-07 14:12:19.657 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5255/, Response status code: 404
+2026-10-07 14:16:23.478 +03:00 [INF] Application is shutting down...
