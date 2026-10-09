@@ -21,6 +21,8 @@ builder.Services.AddApplication();
 
 builder.Services.AddHostedService<BotHostedService>();
 
+builder.Services.AddControllers();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -40,5 +42,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseCors("AllowAll");
+
+app.MapControllers();
 
 app.Run();
