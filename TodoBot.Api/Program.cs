@@ -21,6 +21,16 @@ builder.Services.AddApplication();
 
 builder.Services.AddHostedService<BotHostedService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -28,5 +38,7 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<Infrastructure.Persistence.AppDbContext>();
     db.Database.Migrate();
 }
+
+app.UseCors("AllowAll");
 
 app.Run();
