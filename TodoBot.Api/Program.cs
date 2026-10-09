@@ -2,6 +2,7 @@ using Serilog;
 using TodoBot.Api;
 using Application;
 using Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,5 +22,11 @@ builder.Services.AddApplication();
 builder.Services.AddHostedService<BotHostedService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<Infrastructure.Persistence.AppDbContext>();
+    db.Database.Migrate();
+}
 
 app.Run();
